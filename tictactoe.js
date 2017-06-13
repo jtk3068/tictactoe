@@ -7,6 +7,17 @@
 
 var prompt = require('prompt');
 
+var board = {
+    1: 'open',
+    2: 'open',
+    3: 'open',
+    4: 'open',
+    5: 'open',
+    6: 'open',
+    7: 'open',
+    8: 'open',
+    9: 'open'
+};
 function startGame(player) {
 
 function tictactoeBoard() {
@@ -16,21 +27,10 @@ function tictactoeBoard() {
     '' + board[7] + ' | ' + board[8] + ' | ' + board[9] + '\n');
 }
 
-var board = {
-    1: '',
-    2: '',
-    3: '',
-    4: '',
-    5: '',
-    6: '',
-    7: '',
-    8: '',
-    9: ''
-};
 
 
 function move(position) {
-    if (board[position] === '') {
+    if (board[position] === 'open') {
         return true;
     }
     return false;
@@ -40,6 +40,9 @@ function markBoard(position, mark) {
     board[position] = mark;
 }
 var combos = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],[2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]];
+
+
+
 
 function winningCombo(player) {
     for (var i = 0; i < combos.length; i++) {
